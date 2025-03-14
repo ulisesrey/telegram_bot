@@ -7,10 +7,13 @@ from telegram.ext import filters, MessageHandler, ApplicationBuilder, ContextTyp
 from together import Together
 
 
-TOKEN = os.getenv('BOT_API')  # Read from environment variables
-T_API_KEY = os.getenv('TOGETHER_API')
+# Telegram Bot Token
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 
-client = Together(api_key=T_API_KEY)
+# Together.ai API Key
+TOGETHER_API_KEY = os.getenv('TOGETHER_API_KEY')
+
+client = Together(api_key=TOGETHER_API_KEY)
 
 # logging.basicConfig(
 #     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -27,7 +30,8 @@ async def conversation(update: Update, context: ContextTypes.DEFAULT_TYPE):
     completion = client.chat.completions.create(
         model="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free",
         messages=[{"role": "user", "content": update.message.text}],
-)
+    )
+    
     response = completion.choices[0].message.content
     await context.bot.send_message(chat_id=update.effective_chat.id, text=response)
 
@@ -41,7 +45,7 @@ async def unknown(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 if __name__ == '__main__':
-    application = ApplicationBuilder().token(TOKEN).build()
+    application = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
     
     start_handler = CommandHandler('start', start)
 
