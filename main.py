@@ -12,10 +12,10 @@ T_API_KEY = os.getenv('TOGETHER_API')
 
 client = Together(api_key=T_API_KEY)
 
-logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    level=logging.INFO
-)
+# logging.basicConfig(
+#     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+#     level=logging.INFO
+# )
 
 # Async functions
 
