@@ -1,16 +1,14 @@
 import logging
-import yaml
+import os
 from telegram import Update
 from telegram.ext import filters, MessageHandler, ApplicationBuilder, ContextTypes, CommandHandler
 
 #from huggingface_hub import InferenceClient
 from together import Together
 
-# Read tokens from config YAML
-with open('config.yaml') as file:
-    config = yaml.load(file, Loader=yaml.FullLoader)
-    TOKEN = config['TOKEN']
-    T_API_KEY = config['TOGETHER_API']
+
+TOKEN = os.getenv('BOT_API')  # Read from environment variables
+T_API_KEY = os.getenv('TOGETHER_API')
 
 client = Together(api_key=T_API_KEY)
 
