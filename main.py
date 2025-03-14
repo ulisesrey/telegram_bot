@@ -36,7 +36,6 @@ async def conversation(update: Update, context: ContextTypes.DEFAULT_TYPE):
         model="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free",
         messages=[
             {"role": "system", "content": CONTEXT},
-            {"role": "user", "content": USER_CONTEXT},
             {"role": "user", "content": update.message.text}],
     )
     
