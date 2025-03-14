@@ -13,6 +13,9 @@ TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 # Together.ai API Key
 TOGETHER_API_KEY = os.getenv('TOGETHER_API_KEY')
 
+CONTEXT = os.getenv('CONTEXT')
+USER_CONTEXT = os.getenv('CONTEXT')
+
 client = Together(api_key=TOGETHER_API_KEY)
 
 # logging.basicConfig(
@@ -27,9 +30,14 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def conversation(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
+    # modified_message = CONTEXT + update.message.text,
+
     completion = client.chat.completions.create(
         model="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free",
-        messages=[{"role": "user", "content": update.message.text}],
+        messages=[
+            {"role": "system", "content": CONTEXT},
+            {"role": "user", "content": USER_CONTEXT},
+            {"role": "user", "content": update.message.text}],
     )
     
     response = completion.choices[0].message.content
