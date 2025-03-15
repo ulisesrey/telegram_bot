@@ -57,8 +57,9 @@ async def conversation(update: Update, context: ContextTypes.DEFAULT_TYPE):
         messages=messages,
         max_tokens=5000,
     )
-    total_tokens = sum(len(msg["content"].split()) for msg in messages)
-    print(f"Total tokens before request: {total_tokens}")
+    # For debugging purposes, print the total number of tokens in the conversation
+    # total_tokens = sum(len(msg["content"].split()) for msg in messages)
+    # print(f"Total tokens before request: {total_tokens}")
 
     response = completion.choices[0].message.content
 
