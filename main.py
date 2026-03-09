@@ -14,7 +14,7 @@ CONTEXT = os.getenv('CONTEXT', "You are a helpful assistant.")
 
 # Initialize Bedrock
 bedrock_runtime = boto3.client("bedrock-runtime", region_name=AWS_REGION)
-MODEL_ID = "meta.llama3-1-8b-instruct-v1:0"
+MODEL_ID = "amazon.nova-micro-v1:0"
 
 # --- User Storage ---
 user_data = {}
