@@ -8,7 +8,7 @@ This bot interacts with users by processing messages through Large Language Mode
 ## Features
 * **Context-Aware Chat:** Uses provided background data to inform LLM responses.
 * **Flexible Backend:** Supports multiple LLM execution paths:
-    * **Local:** Integration with [Ollama](https://ollama.com/).
+    * **Local:** Integration with [Ollama](https://ollama.com/). (Now not supported by default)
     * **Cloud:** Provider-based inference via [AWS Bedrock](https://aws.amazon.com/bedrock/).
 * **Reliable Hosting:** Configured for seamless deployment on [Railway](https://railway.app/).
 
