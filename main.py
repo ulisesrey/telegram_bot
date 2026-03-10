@@ -3,8 +3,6 @@ import logging
 import boto3
 from telegram import Update
 from telegram.ext import filters, MessageHandler, ApplicationBuilder, ContextTypes, CommandHandler
-# from dotenv import load_dotenv
-# load_dotenv()
 
 
 # --- Environment Setup ---
