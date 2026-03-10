@@ -8,9 +8,14 @@ This bot interacts with users by processing messages through Large Language Mode
 ## Features
 * **Context-Aware Chat:** Uses provided background data to inform LLM responses.
 * **Flexible Backend:** Supports multiple LLM execution paths:
-    * **Local:** Integration with [Ollama](https://ollama.com/). (Now not supported by default)
     * **Cloud:** Provider-based inference via [AWS Bedrock](https://aws.amazon.com/bedrock/).
+    * **Local:** Integration with [Ollama](https://ollama.com/) (Legacy).
 * **Reliable Hosting:** Configured for seamless deployment on [Railway](https://railway.app/).
+
+## Deployment
+This project uses **Continuous Deployment** via Railway. 
+* Every push to the `main` branch triggers a new build.
+* **To skip deployment:** Include `[skip cd]` in your commit message if you are pushing changes that do not require a live update (e.g., documentation or README edits).
 
 ## Example
 ![alt text](figures/example.png)
@@ -20,7 +25,7 @@ This bot interacts with users by processing messages through Large Language Mode
 ## Tech Stack
 * **Infrastructure:** Railway
 * **Interface:** Telegram Bot API
-* **AI Orchestration:** Ollama / AWS Bedrock
+* **AI Orchestration:** AWS Bedrock / Ollama
 
 ---
 
