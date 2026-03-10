@@ -1,4 +1,15 @@
 # Telegram Bot
-A telegram bot
+A telegram bot who chats with someone using LLMs and a provided context of that person.
 
-This is the public repository for deployment of a [private](https://github.com/ulisesrey/conversacion_papa) one where I am developing the bot.
+## Example:
+![alt text](figures/example.png)
+
+More advanced telegram bots are in private repositories.
+
+## Author
+Ulises Rey
+
+## Tech Stack:
+    - Deployed in Railway.
+    - Telegram Bot API
+    - Using local LLM models with Ollama or provider based with AWS Bedrock.
